@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Motorista</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <a href="#" class="home-button" aria-label="Início">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+    </a>
+
+    <div class="screen-container">
+        <div class="left-side">
+            <h1 class="main-title">Motorista</h1>
+            <div class="blur-wrapper">
+                <div class="exact-gray-blur"></div>
+                <img src="FotoYas.png" alt="Foto de Yasmin" class="menina-foto">
+            </div>
+        </div>
+
+        <div class="right-side">
+            <div class="brand-container">
+                <img src="Logo@2x.png" alt="Logótipo ConnectTruck" class="brand-logo">
+                <h2 class="connect-truck">ConnectTruck</h2>
+            </div>
+
+            <h2 class="form-heading">Termos de Responsabilidade e Adesão</h2>
+            
+            <form class="form-container" onsubmit="event.preventDefault(); alert('Cadastro finalizado com sucesso!');">
+                
+                <div class="terms-box">
+                    <p><strong>TERMO DE USO – PLATAFORMA DE ENTREGA POR CAMINHÃO</strong></p>
+                    
+                    <p><strong>1. ACEITAÇÃO DOS TERMOS</strong><br>
+                    Ao acessar e utilizar a plataforma ConnectTruck, o usuário declara ter lido, compreendido e aceitado integralmente os presentes Termos de Uso. Caso não concorde, o uso da plataforma não é permitido.</p>
+                    
+                    <p><strong>2. OBJETO DO SERVIÇO</strong><br>
+                    A plataforma tem como objetivo intermediar a contratação de serviços de transporte de cargas por caminhão entre empresas contratantes e transportadores cadastrados.</p>
+                    
+                    <p><strong>3. CADASTRO DO USUÁRIO</strong><br>
+                    3.1. O usuário se compromete a fornecer informações verdadeiras, completas e atualizadas.<br>
+                    3.2. O usuário é responsável pela confidencialidade de seus dados de acesso.<br>
+                    3.3. A plataforma pode suspender ou excluir contas em caso de informações falsas ou uso indevido.</p>
+                    
+                    <p><strong>4. RESPONSABILIDADES DO USUÁRIO</strong><br>
+                    4.1. Informar corretamente os dados da carga (peso, dimensões, tipo e características).<br>
+                    4.2. Garantir que a carga esteja devidamente embalada e dentro das normas legais.<br>
+                    4.3. Não utilizar a plataforma para fins ilícitos ou proibidos por lei.</p>
+                    
+                    <p><strong>5. RESPONSABILIDADES DA PLATAFORMA</strong><br>
+                    5.1. Disponibilizar o sistema para intermediação dos serviços.<br>
+                    5.2. Buscar manter a segurança e disponibilidade do sistema.<br>
+                    5.3. Não se responsabilizar por atrasos, danos ou perdas decorrentes do transporte, sendo essa responsabilidade do transportador contratado, salvo disposição legal em contrário.</p>
+                    
+                    <p><strong>6. RESPONSABILIDADES DO TRANSPORTADOR</strong><br>
+                    6.1. Cumprir os prazos acordados.</p>
+                </div>
+
+                <label class="terms-checkbox">
+                    <input type="checkbox" required>
+                    <span>Sim eu concordo</span>
+                </label>
+
+                <div class="action-bar">
+                    <button type="button" class="action-btn" onclick="window.location.href='pagina3.html'">Voltar</button>
+                    <div class="step-pagination">. . . 4</div>
+                    <button type="submit" class="action-btn">Finalizar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

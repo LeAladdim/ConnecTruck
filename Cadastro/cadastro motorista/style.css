@@ -45,6 +45,7 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: 60px;
+    animation: entradaSuave 0.5s ease-out forwards;
 }
 
 /* --- LADO ESQUERDO (Título e Borrão) --- */
@@ -179,7 +180,7 @@ body {
 .form-container {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 35px;
 }
 
 .input-field input {
@@ -238,6 +239,192 @@ body {
     font-weight: 500;
     color: #FFFFFF;
     user-select: none;
+}
+
+/* --- ANIMAÇÃO DE TRANSIÇÃO SUAVE --- */
+@keyframes entradaSuave {
+    0% {
+        opacity: 0;
+        
+    }
+    100% {
+        opacity: 1;
+        
+    }
+}
+
+/* --- ESTILOS DA PÁGINA 3 --- */
+
+/* Linha dividida ao meio */
+.split-row {
+    display: flex;
+    gap: 15px; 
+    width: 100%;
+}
+
+.split-row .input-field {
+    flex: 1; /* Faz ambas as caixas ocuparem 50% do espaço */
+    position: relative;
+}
+
+/* Caixa de Upload da CNH */
+.file-upload label {
+    background-color: #D3E7FC;
+    border-radius: 8px;
+    padding: 22px 20px; /* Mantém a mesma altura das outras caixas */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: #7E8E9F;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.file-upload label:hover {
+    background-color: #D3E7FC;
+}
+
+/* Caixa Dropdown (Tipo de Caminhão) */
+.custom-select select {
+    width: 100%;
+    background-color: #DCE7F3;
+    border: none;
+    border-radius: 8px;
+    padding: 22px 20px;
+    font-size: 1rem;
+    color: #7E8E9F;
+    outline: none;
+    appearance: none; /* Esconde a setinha feia padrão do navegador */
+    cursor: pointer;
+}
+
+.custom-select select:focus {
+    background-color: #D3E7FC;
+}
+
+/* Setinha personalizada do dropdown */
+.custom-select svg {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Permite clicar no botão através do ícone */
+}
+
+/* Pergunta de Sim/Não */
+.extra-question {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.extra-question p {
+    font-size: 1.1rem;
+    color: #D3E7FC;
+    margin-bottom: 12px;
+}
+
+.radio-options {
+    display: flex;
+    justify-content: center;
+    gap: 60px; /* Distância entre o Sim e o Não */
+}
+
+.radio-options label {
+    color: #D3E7FC;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+/* --- AJUSTE EXCLUSIVO DA PÁGINA 3 --- */
+.form-page-3 {
+    gap: 35px; /* Diminui o espaço entre os campos APENAS na página 3 para caber tudo */
+}
+
+/* Deixa as caixas da página 3 um pouquinho mais finas para compensar o tamanho extra */
+.form-page-3 .input-field input,
+.form-page-3 .file-upload label,
+.form-page-3 .custom-select select {
+    padding: 23px 20px; 
+}
+
+/* --- MOVER O LADO DIREITO APENAS NA PÁGINA 3 --- */
+.right-page-3 {
+    /* Empurra todo o bloco para baixo. Ajuste o número (ex: 40px, 60px) até ficar do seu gosto */
+    margin-top: 45px; 
+}
+
+/* --- ESTILOS DA PÁGINA 4 (TERMOS E CONDIÇÕES) --- */
+
+/* Caixa rolável dos termos */
+.terms-box {
+    background-color: rgba(255, 255, 255, 0.03); /* Fundo super sutil para destacar a área */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    height: 260px; /* Altura fixa. Se o texto for maior, ele cria o scroll! */
+    overflow-y: auto; /* Ativa a barra de rolagem vertical */
+    margin-bottom: 5px;
+}
+
+.terms-box p {
+    font-size: 0.9rem;
+    color: #DCE7F3;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.terms-box strong {
+    color: #FFFFFF;
+}
+
+/* Deixando a barra de rolagem elegante para o tema escuro */
+.terms-box::-webkit-scrollbar {
+    width: 8px;
+}
+.terms-box::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+.terms-box::-webkit-scrollbar-thumb {
+    background: #294D61;
+    border-radius: 8px;
+}
+.terms-box::-webkit-scrollbar-thumb:hover {
+    background: #325B72;
+}
+
+/* Estilo do botão "Sim eu concordo" */
+.terms-checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #DCE7F3; /* Fundo clarinho igual da imagem */
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: fit-content;
+    margin-bottom: 10px;
+    transition: background-color 0.2s;
+}
+
+.terms-checkbox:hover {
+    background-color: #FFFFFF;
+}
+
+.terms-checkbox span {
+    color: #1A2B37;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.terms-checkbox input {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
 }
 
 /* Ajustes de Responsividade para Telas Menores */

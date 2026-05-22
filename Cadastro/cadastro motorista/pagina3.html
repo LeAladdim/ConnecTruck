@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Motorista</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <a href="#" class="home-button" aria-label="Início">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+    </a>
+
+    <div class="screen-container">
+        <div class="left-side">
+            <h1 class="main-title">Motorista</h1>
+            <div class="blur-wrapper">
+                <div class="exact-gray-blur"></div>
+                <img src="FotoYas.png" alt="Foto de Yasmin" class="menina-foto">
+            </div>
+        </div>
+
+        <div class="right-side right-page-3">
+            <div class="brand-container">
+                <img src="Logo@2x.png" alt="Logótipo ConnectTruck" class="brand-logo">
+                <h2 class="connect-truck">ConnectTruck</h2>
+            </div>
+
+            <h2 class="form-heading">Cadastre seu automóvel:</h2>
+            
+            <form class="form-container form-page-3" onsubmit="event.preventDefault();window.location.href='pagina4.html';">
+                <div class="input-field">
+                    <input type="text" placeholder="Placa:" required>
+                </div>
+                <div class="input-field">
+                    <input type="text" placeholder="Ano do veículo:" required>
+                </div>
+                <div class="input-field">
+                    <input type="text" placeholder="Capacidade de carga:" required>
+                </div>
+
+                <div class="split-row">
+                    <div class="input-field file-upload">
+                        <input type="file" id="foto-cnh" hidden required>
+                        <label for="foto-cnh">
+                            <span>Foto da CNH</span>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7E8E9F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="12" y1="18" x2="12" y2="12"></line>
+                                <line x1="9" y1="15" x2="15" y2="15"></line>
+                            </svg>
+                        </label>
+                    </div>
+
+                    <div class="input-field custom-select">
+                        <select required>
+                            <option value="" disabled selected>Tipo de caminhão</option>
+                            <option value="Cegonha">Cegonha</option>
+                            <option value="Tanque">Tanque</option>
+                            <option value="Contâiner">Contâiner</option>
+                            <option value="Caçamba">Caçamba</option>
+                            <option value="Graneleiro">Graneleiro</option>
+                            <option value="Baú">Baú</option>
+                            <option value="Sider">Sider</option>
+                            <option value="caminhão">caminhão</option>
+                            <option value="Toco">Toco</option>
+                            <option value="Três Quartos">Três Quartos</option>
+                            <option value="Truck">Truck</option>
+                            <option value="Cavalo Mecânico">Cavalo Mecânico</option>
+                            <option value="Refrigerado">Refrigerado</option>
+                        </select>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7E8E9F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="extra-question">
+                    <p>Deseja cadastrar outro caminhão?</p>
+                    <div class="radio-options">
+                        <label><input type="radio" name="outro_caminhao" value="sim"> Sim</label>
+                        <label><input type="radio" name="outro_caminhao" value="nao"> Não</label>
+                    </div>
+                </div>
+
+                <div class="action-bar">
+                    <button type="button" class="action-btn" onclick="window.location.href='pagina2.html'">Voltar</button>
+                    <div class="step-pagination">. . 3 . </div>
+                    <button type="submit" class="action-btn">Próximo</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
