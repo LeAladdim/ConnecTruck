@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Motorista</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <a href="#" class="home-button" aria-label="Início">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+    </a>
+
+    <div class="screen-container">
+        <div class="left-side">
+            <h1 class="main-title">Motorista</h1>
+            <div class="blur-wrapper">
+                <div class="exact-gray-blur"></div>
+                <img src="FotoYas.png" alt="Foto de Yasmin" class="menina-foto">
+            </div>
+        </div>
+
+        <div class="right-side">
+            <div class="brand-container">
+                <img src="Logo@2x.png" alt="Logótipo ConnectTruck" class="brand-logo">
+                <h2 class="connect-truck">ConnectTruck</h2>
+            </div>
+
+            <h2 class="form-heading">Cadastre-se como motorista:</h2>
+            
+            <form class="form-container" onsubmit="event.preventDefault();">
+                <div class="input-field">
+                    <input type="text" placeholder="CPF:">
+                </div>
+                <div class="input-field">
+                    <input type="text" placeholder="CNH:">
+                </div>
+                <div class="input-field">
+                    <input type="text" placeholder="Data de nascimento:">
+                </div>
+                <div class="input-field">
+                    <input type="text" placeholder="Número de telefone:">
+                </div>
+
+                <div class="action-bar">
+                    <button type="button" class="action-btn">Voltar</button>
+                    <div class="step-pagination">1 . . . .</div>
+                    <button type="button" class="action-btn">Próximo</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

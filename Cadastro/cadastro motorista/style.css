@@ -1,0 +1,291 @@
+/* Reset global de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: #0B1E2C;
+    color: #FFFFFF;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    padding-top: 100px; /* Empurra o conteúdo para baixo da casinha */
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Ícone Home */
+.home-button {
+    position: absolute;
+    top: 35px;
+    left: 35px;
+    color: #FFFFFF;
+    width: 28px;
+    height: 28px;
+    opacity: 0.85;
+    transition: opacity 0.2s, transform 0.2s;
+    z-index: 10;
+}
+
+.home-button:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Container Principal */
+.screen-container {
+    display: flex;
+    width: 100%;
+    max-width: 1700px;
+    padding: 20px 40px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+/* --- LADO ESQUERDO (Título e Borrão) --- */
+.left-side {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    
+    /* ALINHAMENTO GERAL DA COLUNA ESQUERDA: */
+    align-items: flex-start;
+                             
+    position: relative;
+    min-height: 600px;
+    padding-left: 35px;
+}
+
+.main-title {
+    font-size: 3.4rem;
+    font-weight: 700;
+    
+    /* MOVER PARA CIMA OU PARA BAIXO: */
+    margin-top: -50px;       /* Aumente este número (ex: 20px) para empurrar o nome para baixo */
+    margin-bottom: 30px; /* Altere este número para dar mais ou menos espaço entre o nome e o quadrado cinza */
+    
+    /* MOVER PARA A DIREITA OU ESQUERDA: */
+    margin-left: 220px;      /* Adicione essa linha e coloque um valor (ex: 40px) se quiser empurrar o nome mais para a direita */
+    
+    color: #FFFFFF;
+    z-index: 5;
+    letter-spacing: 0.5px;
+}
+
+/* Wrapper isolado para o borrão */
+.blur-wrapper {
+    /* MUDANÇA: Voltamos para position relative, assim ele respeita o título e fica embaixo dele naturalmente */
+    position: relative; 
+    width: 100%;
+    max-width: 4000px;
+    height: 700px; 
+    display: grid;
+    place-items: center;
+    z-index: 1;
+}
+
+/* Borrão cinza */
+.exact-gray-blur {
+    /* ADICIONE ESTA LINHA (força-o a ocupar o fundo do grid): */
+    grid-area: 1 / 1; 
+    
+    width: 100%;
+    height: 100%;
+    background-color: #8C98A4;
+    border-radius: 180px;
+    filter: blur(40px);
+    opacity: 0.85;
+    pointer-events: none;
+    
+    /* ADICIONE OU ALTERE O Z-INDEX PARA 1: */
+    z-index: 1; 
+}
+
+.menina-foto {
+    /* ALTERE ESTA LINHA (em vez de position: absolute, use grid): */
+    grid-area: 1 / 1; 
+    
+    z-index: 2; /* Maior que o do borrão, para ficar à frente */
+    
+    max-height: 554%; 
+    width: auto;      
+    object-fit: contain;
+    border-radius: 50px;
+    
+    transform: translateY(45px);
+}
+
+/* Classe da imagem (caso coloque a foto da menina) */
+.menina-image {
+    grid-area: 1 / 1;
+    max-height: 90%;
+    width: auto;
+    object-fit: contain;
+    z-index: 1;
+}
+
+/* --- LADO DIREITO (Formulário) --- */
+.right-side {
+    flex: 1.3; 
+    max-width: 5000px; 
+    display: flex;
+    flex-direction: column;
+    padding-top: 90px; /* Ajusta a altura para equilibrar visualmente com o lado esquerdo */
+}
+
+/* --- ESTILOS DA LOGO CONNECTTRUCK --- */
+/* --- ESTILOS DA LOGO CONNECTTRUCK --- */
+.brand-container {
+    display: flex;
+    flex-direction: row; /* Garante que o pneu e o texto fiquem LADO A LADO */
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* Espacinho entre o pneu e a palavra ConnectTruck */
+    
+    /* O SEGREDO PARA MOVER SÓ A LOGO SEM PUXAR O FORMULÁRIO: */
+    position: relative;
+    top: -210px; /* Mude este número para mover mais pra cima (-60px) ou pra baixo (-20px) */
+    
+    margin-bottom: -100px; 
+}
+
+.brand-logo {
+    width: 85px; /* Tamanho do pneu */
+    height: auto;
+}
+
+.connect-truck {
+    font-size: 2.2rem;
+    font-weight: 800;
+    font-style: italic;
+    color: #FFFFFF;
+    margin-bottom: 0; /* Garante que o texto não crie espaços indesejados */
+}
+
+.form-heading {
+    font-size: 2.95rem;
+    font-weight: 500;
+    margin-bottom: 45px;
+    color: #FFFFFF;
+    letter-spacing: 0.3px;
+    text-align: center;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.input-field input {
+    width: 100%;
+    background-color: #D3E7FC;
+    border: none;
+    border-radius: 12px;
+    padding: 22px 24px;
+    font-size: 1.1rem;
+    color: #076975;
+    font-weight: 501;
+    outline: none;
+    transition: background-color 0.2s;
+}
+
+.input-field input::placeholder {
+    color: #7E8E9F;
+}
+
+.input-field input:focus {
+    background-color: #E6F0FA;
+}
+
+/* Barra de Ações (Botões e Paginação) */
+.action-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.action-btn {
+    background-color: #294D61;
+    border: 1px solid #044E56;
+    color: #FFFFFF;
+    border-radius: 8px;
+    padding: 12px 30px;
+    font-size: 1.05rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: background-color 0.2s, opacity 0.2s;
+}
+
+.action-btn:hover {
+    background-color: #325B72;
+}
+
+.action-btn:active {
+    opacity: 0.9;
+}
+
+/* Paginação (1 . . . .) */
+.step-pagination {
+    font-size: 1.4rem;
+    letter-spacing: 5px;
+    font-weight: 500;
+    color: #FFFFFF;
+    user-select: none;
+}
+
+/* Ajustes de Responsividade para Telas Menores */
+@media (max-width: 900px) {
+    body {
+        padding-top: 80px;
+    }
+    
+    .screen-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .left-side {
+        min-height: 400px;
+        margin-bottom: 20px;
+        align-items: center; /* Centraliza no celular */
+    }
+    
+    .blur-wrapper {
+        height: 350px;
+    }
+    
+    .right-side {
+        width: 100%;
+        padding-top: 0;
+    }
+
+    @media (max-width: 900px) {
+    /* ... (mantenha as configurações do body, screen-container, left-side e blur-wrapper que já estavam aqui) ... */
+    
+    .right-side {
+        width: 100%;
+        padding-top: 0;
+    }
+
+    /* Mantenha apenas isso para a logo no celular: */
+    .brand-container {
+        margin-top: 0; /* Volta a margem ao normal no celular */
+    }
+    
+    .brand-logo {
+        width: 70px; /* Pneu um pouco menor no celular */
+    }
+    
+    .connect-truck {
+        font-size: 1.5rem; /* Texto um pouco menor no celular */
+    }
+}
+
+}
