@@ -1,0 +1,533 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f0f2f5;
+  color: #1a2240;
+}
+
+.pagina {
+  display: flex; /* coloca sidebar e conteudo lado a lado */
+  min-height: 100vh; /* ocupa a altura toda da tela */
+}
+
+/* ================================
+   PARTE 1: SIDEBAR
+================================ */
+
+.sidebar {
+  width: 240px;
+  min-height: 100vh;
+  background-color: #0e1629; /* azul escuro */
+  display: flex;
+  flex-direction: column; /* empilha logo e nav */
+  padding: 24px 16px;
+  gap: 40px;
+  position: fixed; /* fica fixo ao rolar a página */
+}
+
+/* Logo */
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.sidebar-logo img {
+  width: 40px;
+}
+
+/* Textos do logo */
+.sidebar-nome {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.sidebar-slogan {
+  display: block;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Nav */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Cada link do menu */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.55);
+  transition: background 0.2s;
+}
+
+.nav-item img {
+  width: 18px;
+  opacity: 0.6;
+}
+
+.nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Item ativo (página atual) */
+.nav-item-ativo {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border-left: 3px solid #1ecb6f; /* barra verde na esquerda */
+  padding-left: 11px; /* 14px - 3px da borda = continua alinhado */
+}
+
+.nav-item-ativo img {
+  opacity: 1;
+}
+
+/* ================================
+   PARTE 2: CONTEÚDO
+   Tudo que fica à direita da sidebar
+================================ */
+
+.conteudo {
+  margin-left: 240px; /* empurra pro lado direito da sidebar */
+  flex: 1; /* ocupa o resto da largura */
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================================
+   TOPBAR
+================================ */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 28px;
+  height: 68px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e8ebf0;
+}
+
+/* Título e descrição */
+.topbar-titulo h2 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a2240;
+}
+
+.topbar-titulo p {
+  font-size: 11px;
+  color: #8892a4;
+}
+
+/* Campo de busca */
+.topbar-busca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1; /* ocupa o espaço do meio */
+  max-width: 420px;
+  margin: 0 auto;
+  background-color: #f5f7fa;
+  border: 1px solid #e8ebf0;
+  border-radius: 8px;
+  padding: 8px 14px;
+}
+
+.topbar-busca img {
+  width: 16px;
+  opacity: 0.5;
+}
+
+.topbar-busca input {
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 13px;
+  color: #1a2240;
+  width: 100%;
+  outline: none;
+}
+
+.topbar-busca input::placeholder {
+  color: #b0b9c8;
+}
+
+/* Botões do lado direito */
+.topbar-acoes {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.btn-notificacao {
+  width: 38px;
+  height: 38px;
+  border: 1px solid #e8ebf0;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-notificacao img {
+  width: 18px;
+}
+
+.btn-novo-envio {
+  background-color: #1ecb6f;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 16px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-novo-envio:hover {
+  background-color: #17a85a;
+}
+
+/* Foto de perfil */
+.foto-perfil {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e8ebf0;
+}
+
+/* ================================
+   TÍTULO DA PÁGINA
+================================ */
+
+.pagina-titulo {
+  padding: 28px 28px 0;
+}
+
+.pagina-titulo h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1a2240;
+}
+
+/* ================================
+   FILTROS
+================================ */
+
+.filtros {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 28px;
+}
+
+/* Cada caixinha de filtro */
+.filtro {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #ffffff;
+  border: 1px solid #e8ebf0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a2240;
+  cursor: pointer;
+}
+
+.filtro img {
+  width: 16px;
+  opacity: 0.6;
+}
+
+.ponto-verde {
+  color: #1ecb6f;
+  font-size: 12px;
+}
+
+/* ================================
+   ÁREA PRINCIPAL
+   Lista de caminhões + mapa lado a lado
+================================ */
+
+.area-principal {
+  display: flex;
+  gap: 0;
+  flex: 1;
+  margin: 0 28px 28px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e8ebf0;
+  background: #fff;
+}
+
+/* ================================
+   LISTA DE CAMINHÕES (esquerda)
+================================ */
+
+.lista-caminhoes {
+  width: 300px; /* largura fixa */
+  flex-shrink: 0; /* não encolhe */
+  border-right: 1px solid #e8ebf0;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 12px;
+  overflow-y: auto; /* scroll se precisar */
+}
+
+/* Campo de busca da lista */
+.lista-busca {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #e8ebf0;
+  border-radius: 8px;
+  padding: 8px 12px;
+  background: #f5f7fa;
+}
+
+.lista-busca img {
+  width: 15px;
+  opacity: 0.4;
+}
+
+.lista-busca input {
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+  width: 100%;
+  color: #1a2240;
+}
+
+.lista-busca input::placeholder {
+  color: #b0b9c8;
+}
+
+/* Filtros em pill (botão arredondado) */
+.lista-filtros {
+  display: flex;
+  gap: 8px;
+}
+
+.filtro-pill {
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid #e8ebf0;
+  border-radius: 20px;
+  background: #fff;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: #1a2240;
+}
+
+/* Texto "Mostrando 12 caminhões" */
+.lista-quantidade {
+  font-size: 12px;
+  color: #8892a4;
+}
+
+/* Cada caminhão na lista */
+.caminhao-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #e8ebf0;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.caminhao-item:hover {
+  background-color: #f5f7fa;
+}
+
+/* Foto do caminhão */
+.caminhao-foto {
+  width: 60px;
+  object-fit: contain;
+}
+
+/* Textos do caminhão */
+.caminhao-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.caminhao-info strong {
+  font-size: 15px;
+  color: #1a2240;
+}
+
+.caminhao-info small {
+  font-size: 11px;
+  color: #8892a4;
+}
+
+/* Status coloridos */
+.status {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-verde {
+  color: #1ecb6f;
+}
+.status-amarelo {
+  color: #f5a623;
+}
+.status-vermelho {
+  color: #e53935;
+}
+
+/* ================================
+   PAGINAÇÃO
+================================ */
+
+.paginacao {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.paginacao button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #e8ebf0;
+  border-radius: 6px;
+  background: #fff;
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  color: #1a2240;
+}
+
+.paginacao button:hover {
+  background: #f5f7fa;
+}
+
+/* Página atual destacada */
+.pagina-ativa {
+  background-color: #5291fa !important;
+  color: #fff !important;
+  border-color: #5291fa !important;
+}
+
+/* ================================
+   MAPA (direita)
+================================ */
+
+.mapa {
+  flex: 1; /* ocupa o resto do espaço */
+  position: relative; /* necessário para o card ficar por cima */
+}
+
+.mapa img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* cobre o espaço todo sem distorcer */
+  display: block;
+}
+
+/* Card de info do caminhão selecionado */
+.mapa-card {
+  position: absolute; /* flutua por cima do mapa */
+  bottom: 24px;
+  right: 24px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 280px;
+}
+
+/* Linha do topo: "EM ROTA" + placa */
+.mapa-card-topo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mapa-card-status {
+  background-color: #fff176; /* amarelo */
+  color: #1a2240;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.mapa-card-placa {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a2240;
+}
+
+/* Origem → Destino */
+.mapa-card-rota {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #1a2240;
+}
+
+.seta-rota {
+  color: #1ecb6f;
+  font-size: 18px;
+}
+
+/* KM */
+.mapa-card-km {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1ecb6f;
+}
+
+/* Rodapé do card */
+.mapa-card-rodape {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: #8892a4;
+  border-top: 1px solid #f0f2f5;
+  padding-top: 8px;
+}
+
+.mapa-card-rodape strong {
+  color: #1a2240;
+}

@@ -1,18 +1,3 @@
-/* ================================
-   ARQUIVO: transportadoras.css
-   
-   Esse arquivo cuida APENAS do
-   estilo da página Transportadoras.
-   
-   O menu já está no style.css deles.
-================================ */
-
-/* ================================
-   PARTE 2: HERO
-   O bloco grande com título,
-   foto e card branco
-================================ */
-
 /* A seção inteira do hero */
 .hero {
   position: relative;

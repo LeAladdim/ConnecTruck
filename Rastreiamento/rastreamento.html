@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ConnectTruck - Rastreamento</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="rastreamento.css" />
+  </head>
+  <body>
+    <div class="pagina">
+      <!-- ================================
+      PARTE 1: SIDEBAR (menu lateral)
+    ================================ -->
+      <aside class="sidebar">
+        <!-- Logo -->
+        <a href="#" class="sidebar-logo">
+          <img src="../images/logo.png" alt="Logo" />
+          <div>
+            <span class="sidebar-nome">ConnectTruck</span>
+            <span class="sidebar-slogan"
+              >Logistica compartilhada inteligente</span
+            >
+          </div>
+        </a>
+
+        <!-- Links de navegação -->
+        <nav class="sidebar-nav">
+          <a href="#" class="nav-item">
+            <img src="../images/icon-home.svg" alt="" />
+            Dashboard
+          </a>
+
+          <a href="#" class="nav-item">
+            <img src="../public/file-text.svg" alt="" />
+            Relatórios
+          </a>
+
+          <!-- Item ativo (página atual) -->
+          <a href="#" class="nav-item nav-item-ativo">
+            <img src="../public/truck.svg" alt="" />
+            Rastreamento
+          </a>
+
+          <a href="#" class="nav-item">
+            <img src="../public/settings.svg" alt="" />
+            Configurações
+          </a>
+        </nav>
+      </aside>
+
+      <!-- ================================
+      PARTE 2: CONTEÚDO (lado direito)
+    ================================ -->
+      <div class="conteudo">
+        <!-- ================================
+        TOPBAR (barra do topo)
+      ================================ -->
+        <header class="topbar">
+          <!-- Título e descrição -->
+          <div class="topbar-titulo">
+            <h2>Rastreamento</h2>
+            <p>Alguma descrição que tenha algo haver</p>
+          </div>
+
+          <!-- Campo de busca -->
+          <div class="topbar-busca">
+            <img src="../public/search.svg" alt="Buscar" />
+            <input type="text" placeholder="Buscar carga, rota ou caminhão" />
+          </div>
+
+          <!-- Botões do lado direito -->
+          <div class="topbar-acoes">
+            <button class="btn-notificacao">
+              <img src="../public/bell.svg" alt="Notificações" />
+            </button>
+            <button class="btn-novo-envio">+ Novo Envio</button>
+            <img
+              src="../public/image-44@2x.png"
+              alt="Perfil"
+              class="foto-perfil"
+            />
+          </div>
+        </header>
+
+        <!-- ================================
+        TÍTULO DA PÁGINA
+      ================================ -->
+        <div class="pagina-titulo">
+          <h1>Rastreamento</h1>
+        </div>
+
+        <!-- ================================
+        FILTROS
+        Três controles: data, disponibilidade
+        e tipo de veículo
+      ================================ -->
+        <div class="filtros">
+          <!-- Filtro de data -->
+          <div class="filtro">
+            <span>Apenas de Hoje</span>
+            <img src="../images/calendario.svg" alt="Calendário" />
+          </div>
+
+          <!-- Filtro de disponibilidade -->
+          <div class="filtro">
+            <span class="ponto-verde">●</span>
+            <span>Alta Disponibilidade</span>
+            <img src="../images/arrow-down.svg" alt="Abrir" />
+          </div>
+
+          <!-- Filtro de veículo -->
+          <div class="filtro">
+            <span>Todos os Veículos</span>
+            <img src="../images/arrow-down.svg" alt="Abrir" />
+          </div>
+        </div>
+
+        <!-- ================================
+        ÁREA PRINCIPAL
+        Lista de caminhões + mapa lado a lado
+      ================================ -->
+        <div class="area-principal">
+          <!-- ================================
+          LISTA DE CAMINHÕES (esquerda)
+        ================================ -->
+          <div class="lista-caminhoes">
+            <!-- Busca dentro da lista -->
+            <div class="lista-busca">
+              <img src="../public/search.svg" alt="Buscar" />
+              <input type="text" placeholder="Buscar caminhão..." />
+            </div>
+
+            <!-- Filtros da lista -->
+            <div class="lista-filtros">
+              <button class="filtro-pill">Todos os veículos ▾</button>
+              <button class="filtro-pill">Todos os s... ▾</button>
+            </div>
+
+            <!-- Quantidade -->
+            <p class="lista-quantidade">Mostrando 12 caminhões</p>
+
+            <!-- Caminhão 1 -->
+            <div class="caminhao-item">
+              <img
+                src="../images/Caminhao-TelaInicial.png"
+                alt="Caminhão"
+                class="caminhao-foto"
+              />
+              <div class="caminhao-info">
+                <strong>ABC1D23</strong>
+                <span class="status status-verde">● Alta Disponibilidade</span>
+                <small>Atualizado agora ✓</small>
+              </div>
+            </div>
+
+            <!-- Caminhão 2 -->
+            <div class="caminhao-item">
+              <img
+                src="../images/Caminhao-TelaInicial.png"
+                alt="Caminhão"
+                class="caminhao-foto"
+              />
+              <div class="caminhao-info">
+                <strong>ABC1D34</strong>
+                <span class="status status-amarelo">● Quase Cheio</span>
+                <small>Atualizado há 8 min ✓</small>
+              </div>
+            </div>
+
+            <!-- Caminhão 3 -->
+            <div class="caminhao-item">
+              <img
+                src="../images/Caminhao-TelaInicial.png"
+                alt="Caminhão"
+                class="caminhao-foto"
+              />
+              <div class="caminhao-info">
+                <strong>BRA2E19</strong>
+                <span class="status status-amarelo">● Quase Cheio</span>
+                <small>Atualizado há 5 min ✓</small>
+              </div>
+            </div>
+
+            <!-- Caminhão 4 -->
+            <div class="caminhao-item">
+              <img
+                src="../images/Caminhao-TelaInicial.png"
+                alt="Caminhão"
+                class="caminhao-foto"
+              />
+              <div class="caminhao-info">
+                <strong>BEE4R22</strong>
+                <span class="status status-vermelho">● Cheio</span>
+                <small>Atualizado há 2 min ✓</small>
+              </div>
+            </div>
+
+            <!-- Caminhão 5 -->
+            <div class="caminhao-item">
+              <img
+                src="../images/Caminhao-TelaInicial.png"
+                alt="Caminhão"
+                class="caminhao-foto"
+              />
+              <div class="caminhao-info">
+                <strong>ABC1C34</strong>
+                <span class="status status-vermelho">● Cheio</span>
+                <small>Atualizado agora ✓</small>
+              </div>
+            </div>
+
+            <!-- Paginação -->
+            <div class="paginacao">
+              <button>«</button>
+              <button class="pagina-ativa">1</button>
+              <button>2</button>
+              <button>3</button>
+              <button>»</button>
+            </div>
+          </div>
+
+          <!-- ================================
+          MAPA (direita)
+          A imagem do mapa ocupa o restante
+        ================================ -->
+          <div class="mapa">
+            <img src="../images/mapa-rastreamento.png" alt="Mapa" />
+
+            <!-- Card de info do caminhão selecionado -->
+            <div class="mapa-card">
+              <span class="mapa-card-status">EM ROTA</span>
+              <strong class="mapa-card-placa">ABC12D3</strong>
+              <div class="mapa-card-rota">
+                <span>São Paulo, SP</span>
+                <span class="seta-rota">→</span>
+                <span>Rio de Janeiro, RJ</span>
+              </div>
+              <p class="mapa-card-km">● 792 KM</p>
+              <div class="mapa-card-rodape">
+                <span>Atualizado agora</span>
+                <strong>Entrega: 12/04/2025</strong>
+                <span>67 km/h</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
