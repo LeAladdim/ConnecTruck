@@ -197,9 +197,10 @@
                         src="../public/image-43@2x.png"
                       />
                     </div>
-                    <button class="carregar-nova-foto-wrapper">
+                    <button class="carregar-nova-foto-wrapper" onclick="document.getElementById('upload-foto').click()">
                       <b class="carregar-nova-foto">Carregar nova foto</b>
                     </button>
+                  <input type="file" id="upload-foto" style="display: none;" accept="image/*" />
                   </div>
                   <div class="data-fields">
                     <div class="field-container">
@@ -239,31 +240,35 @@
                         </div>
                       </div>
                       <div class="data-entries">
-                        <div class="label-entries">
-                          <div class="nome">Senha Atual</div>
-                          <div class="rectangle-parent10">
-                            <div class="value-containers-child"></div>
-                            <input
-                              class="placeholder"
-                              placeholder="*******************"
-                              type="text"
-                            />
-                          </div>
-                        </div>
-                        <div class="connecttruck-parent">
-                          <div class="nome">Nova Senha</div>
-                          <input class="footer" type="text" />
-                        </div>
-                        <div class="confirmation-field-parent">
-                          <div class="connecttruck-parent">
-                            <div class="nome">Confirmar Nova Senha</div>
-                            <input class="footer" type="text" />
-                          </div>
-                          <div class="sua-senha-deve">
-                            Sua senha deve conter pelo menos 8 caracteres
-                          </div>
-                        </div>
+  
+                    <div class="label-entries">
+                      <div class="nome">Senha Atual</div>
+                      <div class="rectangle-parent10">
+                        <div class="value-containers-child"></div>
+                        <input
+                          class="placeholder"
+                          placeholder="*******************"
+                          type="password" 
+                        />
                       </div>
+                    </div>
+
+                    <div class="connecttruck-parent">
+                      <div class="nome">Nova Senha</div>
+                      <input class="footer" type="password" />
+                    </div>
+
+                    <div class="confirmation-field-parent">
+                      <div class="connecttruck-parent">
+                        <div class="nome">Confirmar Nova Senha</div>
+                        <input class="footer" type="password" />
+                      </div>
+                      <div class="sua-senha-deve">
+                        Sua senha deve conter pelo menos 8 caracteres
+                      </div>
+                    </div>
+
+                        </div>
                     </div>
                   </div>
                 </div>
