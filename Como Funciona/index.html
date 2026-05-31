@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConnectTruck - Como Funciona</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #f4f7f9;
+            width: 100%;
+            max-width: 1000px;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Topbar / Header (Controle por Flexbox) */
+        .header {
+            background-color: #ffffff;
+            padding: 12px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 18px;
+            color: #1c2434;
+        }
+
+        .logo-img-container {
+            width: 26px;
+            height: 26px;
+            margin-right: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #1c2434;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .btn-blue {
+            background-color: #2b5cb3;
+            color: white;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-teal {
+            background-color: #129a98;
+            color: white;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Conteúdo Principal */
+        .main-content {
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        /* Divisor de Seção (Flexbox) */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 2px solid #cbd5e1;
+        }
+
+        .section-title {
+            padding: 0 20px;
+            font-size: 32px;
+            color: #0b2e59;
+            font-weight: 800;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: #1e3a8a;
+            max-width: 850px;
+            margin: 0 auto 40px auto;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        .section-subtitle strong {
+            color: #0b2e59;
+            font-weight: 700;
+        }
+
+        /* Grid de Cards (Controle por Grid System) */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .step-card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 30px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .badge-number {
+            width: 45px;
+            height: 45px;
+            background-color: #2e7d32;
+            color: white;
+            font-size: 22px;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: -22px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        /* Espaço de Imagem do Card (Flexbox para autogestão do tamanho da imagem) */
+        .card-image-box {
+            width: 100%;
+            height: 110px;
+            margin: 15px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-image-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .card-card-title {
+            font-size: 16px;
+            color: #0b2e59;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .card-text {
+            font-size: 13px;
+            color: #475569;
+            line-height: 1.5;
+            text-align: left;
+        }
+
+        /* Banner de Texto */
+        .banner-middle {
+            margin-bottom: 40px;
+        }
+
+        .banner-title {
+            font-size: 34px;
+            color: #0b2e59;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .banner-text {
+            font-size: 16px;
+            color: #334155;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        .banner-text strong {
+            color: #0b2e59;
+            font-weight: 700;
+        }
+
+        /* Vitrine de Imagens Inferiores (Controle por Flexbox Alinhado) */
+        .visual-showcase {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            margin-top: 20px;
+            padding: 0 40px;
+            gap: 20px;
+        }
+
+        .showcase-asset {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 100%;
+        }
+
+        .showcase-asset img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* Rodapé (Flexbox) */
+        .footer-bar {
+            background-color: #cbd5e1;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #b8c5d6;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 15px;
+            color: #475569;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .footer-links span {
+            cursor: pointer;
+        }
+
+        .social-icons-grid {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-img-box {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .social-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Responsividade com Grid/Flex control adaptativo */
+        @media (max-width: 850px) {
+            .header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+            .cards-grid {
+                grid-template-columns: 1fr; /* Muda grid para 1 coluna em mobile */
+                gap: 40px;
+            }
+            .visual-showcase {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+            }
+            .footer-bar {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <div class="logo-img-container">
+                    <img src="caminho/para/sua-logo.png" alt="Logo ConnectTruck">
+                </div>
+                ConnectTruck
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="#" class="nav-link">Como Funciona</a>
+                <button class="btn-blue">Simular Frete</button>
+                <a href="#" class="nav-link">Transportadores</a>
+            </nav>
+
+            <div class="nav-menu">
+                <a href="#" class="nav-link">Entrar</a>
+                <a href="#" class="nav-link">Cadastrar</a>
+                <button class="btn-teal">Criar Frete</button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            
+            <div class="section-divider">
+                <h2 class="section-title">Como Funciona?</h2>
+            </div>
+            
+            <p class="section-subtitle">
+                Veja como Conectamos Empresas com Cargas a <strong>Transportadoras</strong> com <strong>Espaço Disponível</strong> de Forma Automática e Eficiente:
+            </p>
+
+            <div class="cards-grid">
+                
+                <div class="step-card">
+                    <div class="badge-number">1</div>
+                    <div class="card-image-box">
+                        <img src="caminho/para/imagem-etapa1.png" alt="Ilustração Inteligência de Encaixe">
+                    </div>
+                    <h3 class="card-card-title">Inteligência de Encaixe</h3>
+                    <p class="card-text">A empresa cadastra sua carga na plataforma informando o peso, tamanho e destino. O sistema automaticamente cruza esses dados com caminhões disponíveis.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="badge-number">2</div>
+                    <div class="card-image-box">
+                        <img src="caminho/para/imagem-etapa2.png" alt="Ilustração Gestão de Rotas">
+                    </div>
+                    <h3 class="card-card-title">Gestão de Rotas</h3>
+                    <p class="card-text">O sistema agrupa cargas de diferentes clientes que vão para a mesma região, criando uma rota otimizada que maximiza a ocupação do caminhão.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="badge-number">3</div>
+                    <div class="card-image-box">
+                        <img src="caminho/para/imagem-etapa3.png" alt="Ilustração Sustentabilidade Lucrativa">
+                    </div>
+                    <h3 class="card-card-title">Sustentabilidade Lucrativa</h3>
+                    <p class="card-text">Além de reduzir custos, você contribui para um planeta mais verde, diminuindo a emissão de poluentes e otimizando o uso de recursos.</p>
+                </div>
+
+            </div>
+
+            <section class="banner-middle">
+                <h2 class="banner-title">Conectamos Cargas a Caminhões!</h2>
+                <p class="banner-text">
+                    Nosso sistema faz encaixes inteligentes, agrupando cargas que <strong>seguem para o mesmo destino</strong> em caminhões com espaço sobrando, garantindo <strong>eficiência e economia</strong> para todos.
+                </p>
+            </section>
+
+            <section class="visual-showcase">
+                <div class="showcase-asset">
+                    <img src="caminho/para/imagem-caminhao.png" alt="Caminhão ConnectTruck">
+                </div>
+                <div class="showcase-asset">
+                    <img src="caminho/para/imagem-operadora.png" alt="Operadora ConnectTruck">
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="footer-bar">
+            <div class="footer-links">
+                <span>• Sobre</span>
+                <span>• Contato</span>
+                <span>• Política de Privacidade •</span>
+            </div>
+            
+            <div class="social-icons-grid">
+                <div class="social-img-box">
+                    <img src="caminho/para/icone-twitter.png" alt="Twitter">
+                </div>
+                <div class="social-img-box">
+                    <img src="caminho/para/icone-instagram.png" alt="Instagram">
+                </div>
+                <div class="social-img-box">
+                    <img src="caminho/para/icone-youtube.png" alt="YouTube">
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
