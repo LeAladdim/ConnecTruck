@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConnectTruck - Tipo de Perfil</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* Imagem de fundo enviada anteriormente */
+            background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), 
+                        url('assets/1386df84-69da-4786-ac9d-18101ea2f747.png');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .main-title {
+            font-size: 42px;
+            color: #0b2e59;
+            font-weight: 800;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+        }
+
+        .options-container {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Estilo dos botões de perfil */
+        .profile-card {
+            background-color: #244c64; /* Azul escuro da imagem */
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            padding: 0;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+            text-decoration: none;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            height: 110px;
+        }
+
+        .profile-card:hover {
+            transform: scale(1.02);
+            background-color: #1a3a4d;
+        }
+
+        /* Área do ícone à esquerda */
+        .icon-section {
+            background-color: rgba(0, 0, 0, 0.1);
+            width: 100px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            color: #4a90e2; /* Azul claro do ícone */
+        }
+
+        /* Área do texto à direita */
+        .text-section {
+            padding: 20px 30px;
+            text-align: left;
+        }
+
+        .text-section h2 {
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .text-section p {
+            color: #cbd5e0;
+            font-size: 14px;
+        }
+
+        /* Logo no canto inferior esquerdo */
+        .footer-logo {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-logo img {
+            width: 60px; /* Logo circular enviada */
+            height: auto;
+        }
+
+        .footer-logo span {
+            font-size: 22px;
+            font-weight: 800;
+            color: #244c64;
+            font-style: italic;
+            letter-spacing: -1px;
+        }
+
+        /* Responsividade para telas menores */
+        @media (max-width: 650px) {
+            .main-title { font-size: 32px; }
+            .options-container { padding: 0 20px; }
+            .icon-section { width: 80px; font-size: 30px; }
+            .text-section h2 { font-size: 20px; }
+            .footer-logo { bottom: 15px; left: 15px; }
+            .footer-logo img { width: 45px; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="main-title">Tipo de perfil</h1>
+
+    <div class="options-container">
+        
+        <a href="#" class="profile-card">
+            <div class="icon-section">
+                <i class="fa-solid fa-truck"></i>
+            </div>
+            <div class="text-section">
+                <h2>Sou Motorista</h2>
+                <p>Dirijo veículo próprio ou terceirizado</p>
+            </div>
+        </a>
+
+        <a href="#" class="profile-card">
+            <div class="icon-section">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="text-section">
+                <h2>Sou Cliente</h2>
+                <p>Recebimento e envios de pacotes</p>
+            </div>
+        </a>
+
+        <a href="#" class="profile-card">
+            <div class="icon-section">
+                <i class="fa-solid fa-user-check"></i>
+            </div>
+            <div class="text-section">
+                <h2>Sou Entregador</h2>
+                <p>Busco e Entrego Pacotes</p>
+            </div>
+        </a>
+
+    </div>
+
+    <div class="footer-logo">
+        <img src="assets/69f59f63-094e-4f05-8949-8d76d4791f1c.png" alt="Logo ConnectTruck">
+        <span>ConnectTruck</span>
+    </div>
+
+</body>
+</html>
