@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConnectTruck - Verificação de Dados</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0077c0; /* Moldura azul externa */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #d9d9d9; /* Fundo cinza claro */
+            width: 100%;
+            max-width: 1000px;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Topbar / Header */
+        .header {
+            background-color: #ffffff;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 20px;
+            color: #1a1a1a;
+            gap: 10px;
+        }
+
+        /* Espaço da Logo adaptado para a imagem real na pasta assets */
+        .logo img {
+            width: 35px;
+            height: 35px;
+            object-fit: contain;
+        }
+
+        /* Main Content Grid */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            padding: 40px;
+            gap: 30px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Left Column */
+        .left-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .title {
+            font-size: 32px;
+            color: #1c2434;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #1c2434;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        /* Etapas / Steps */
+        .steps-container {
+            margin-bottom: 25px;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .step-number {
+            background-color: #ffffff;
+            color: #555;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .step-text {
+            font-size: 14px;
+            color: #333333;
+        }
+
+        /* LGPD / Privacy Notice */
+        .privacy-notice {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            max-width: 360px;
+            margin-bottom: 30px;
+        }
+
+        .privacy-icon {
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .privacy-text {
+            font-size: 12px;
+            color: #4a4a4a;
+            line-height: 1.4;
+        }
+
+        /* Button */
+        .btn-advance {
+            background-color: #24485c;
+            color: #ffffff;
+            border: none;
+            padding: 12px 35px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: fit-content;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-advance:hover {
+            background-color: #1b3646;
+        }
+
+        /* Right Column (Card da Ilustração) */
+        .right-column {
+            background-color: #0f263c; 
+            border-radius: 20px;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 320px;
+            overflow: hidden;
+        }
+
+        .illustration {
+            width: 100%;
+            max-width: 380px;
+            height: auto;
+            object-fit: contain;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <img src="assets/Logo.png" alt="Logo ConnectTruck">
+                ConnectTruck
+            </div>
+        </header>
+
+        <main class="main-content">
+            
+            <section class="left-column">
+                <h1 class="title">Estamos Quase Lá...<br>Agora, Precisamos Verificar Seus Dados!</h1>
+                
+                <h2 class="subtitle">Conclua o seu registo em apenas 3 etapas</h2>
+                
+                <div class="steps-container">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-text">Verificar o seu número de telefone</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-text">Confirmar a sua identidade</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-text">Confirmar os seus dados</div>
+                    </div>
+                </div>
+
+                <div class="privacy-notice">
+                    <svg class="privacy-icon" width="16" height="18" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 0L0 4V10C0 15.55 3.84 20 9 20C14.16 20 18 15.55 18 10V4L9 0ZM9 2C13.03 2 16 5.36 16 10C16 14.28 12.98 17.74 9 17.92C5.02 17.74 2 14.28 2 10C2 5.36 4.97 2 9 2Z" fill="#4A4A4A"/>
+                        <path d="M9 5L6 8H8V13H10V8H12L9 5Z" fill="#4A4A4A"/>
+                    </svg>
+                    <p class="privacy-text">ConectTruck está empenhada em proteger os seus dados pessoais.</p>
+                </div>
+
+                <button class="btn-advance">Avançar</button>
+            </section>
+
+            <section class="right-column">
+                <img class="illustration" src="assets/image_6b8bfe.png" alt="Entrega de pacotes ConnectTruck">
+            </section>
+
+        </main>
+    </div>
+</body>
+</html>

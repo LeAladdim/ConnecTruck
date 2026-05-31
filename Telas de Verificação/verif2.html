@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConnectTruck - Envio de CNH</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0077c0; /* Moldura azul externa */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #d9d9d9; /* Fundo cinza claro */
+            width: 100%;
+            max-width: 1000px;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            min-height: 560px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Topbar / Header */
+        .header {
+            background-color: #ffffff;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 20px;
+            color: #1a1a1a;
+            gap: 10px;
+        }
+
+        /* Estilização da Logo adaptada para a imagem real */
+        .logo img {
+            width: 35px;
+            height: 35px;
+            object-fit: contain;
+        }
+
+        /* Conteúdo Principal */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 32px;
+            color: #1a1a1a;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            font-size: 22px;
+            color: #333333;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .description {
+            font-size: 14px;
+            color: #444444;
+            max-width: 600px;
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+
+        /* Lista de Instruções */
+        .instructions-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            max-width: 450px;
+            width: 100%;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .instruction-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Estilização Simples dos Documentos */
+        .doc-icon {
+            width: 55px;
+            height: 38px;
+            background-color: #fbe06c;
+            border: 1px solid #d4b63b;
+            border-radius: 6px;
+            flex-shrink: 0;
+            position: relative;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            padding: 4px;
+            gap: 4px;
+        }
+
+        /* Mini foto dentro do ícone */
+        .doc-icon::before {
+            content: '';
+            width: 12px;
+            height: 16px;
+            background-color: #4a90e2;
+            border-radius: 2px;
+            display: block;
+        }
+
+        /* Mini linhas simulando texto */
+        .doc-icon::after {
+            content: '';
+            flex: 1;
+            height: 16px;
+            background: linear-gradient(to bottom, #777 2px, transparent 2px, transparent 5px, #777 5px, #777 7px, transparent 7px);
+            display: block;
+        }
+
+        /* Modificador para o ícone embaçado (Item 2) */
+        .icon-blurred {
+            filter: blur(1.5px);
+            opacity: 0.8;
+        }
+
+        /* Modificador para o ícone com check (Item 3) */
+        .icon-checked::before {
+            background-color: #2e7d32; /* Muda o quadradinho para verde */
+        }
+
+        .instruction-text {
+            font-size: 13px;
+            color: #222222;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        /* Botão Submeter */
+        .btn-submit {
+            background-color: #2d2d2d;
+            color: #ffffff;
+            border: none;
+            padding: 14px 60px;
+            font-size: 15px;
+            font-weight: 500;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .btn-submit:hover {
+            background-color: #1a1a1a;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <img src="assets/Logo.png" alt="Logo ConnectTruck">
+                ConnectTruck
+            </div>
+        </header>
+
+        <main class="main-content">
+            <h1 class="title">Vamos Começar... Do Começo (É Rapidinho)</h1>
+            <h2 class="subtitle">Precisamos da foto dos dois lados da sua CNH</h2>
+            
+            <p class="description">
+                Por favor, tire uma fotografia do seu documento de identificação mais recente para efeitos de verificação.
+            </p>
+
+            <div class="instructions-list">
+                <div class="instruction-item">
+                    <div class="doc-icon"></div>
+                    <div class="instruction-text">
+                        Mantenha o seu documento de identificação bem alinhado no enquadramento.
+                    </div>
+                </div>
+
+                <div class="instruction-item">
+                    <div class="doc-icon icon-blurred"></div>
+                    <div class="instruction-text">
+                        Evite fotos com reflexos, desfocadas ou pouco nítidas.
+                    </div>
+                </div>
+
+                <div class="instruction-item">
+                    <div class="doc-icon icon-checked"></div>
+                    <div class="instruction-text">
+                        Utilize documentos oficiais.
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn-submit">Submeter Arquivo</button>
+        </main>
+    </div>
+
+</body>
+</html>

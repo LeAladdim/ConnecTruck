@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConnectTruck - Hora da Checagem</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #1a1a1a; /* Moldura escura externa */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #d9d9d9; /* Fundo cinza claro */
+            width: 100%;
+            max-width: 1000px;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Topbar / Header Padronizado e Simplificado */
+        .header {
+            background-color: #ffffff;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 20px;
+            color: #1a1a1a;
+            gap: 10px;
+        }
+
+        /* Estilização da Logo oficial na pasta assets */
+        .logo img {
+            width: 35px;
+            height: 35px;
+            object-fit: contain;
+        }
+
+        /* Conteúdo Principal */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .title {
+            font-size: 36px;
+            color: #1a1a1a;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        /* Seção de Status (Dois lados: Mensagem e Checklist) */
+        .status-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 700px;
+            width: 100%;
+            margin-bottom: 40px;
+            align-items: start;
+        }
+
+        .wait-box {
+            text-align: left;
+        }
+
+        .wait-box h3 {
+            font-size: 20px;
+            color: #1a1a1a;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .wait-box p {
+            font-size: 14px;
+            color: #666666;
+            line-height: 1.4;
+        }
+
+        /* Checklist */
+        .checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: #222222;
+            font-weight: 500;
+        }
+
+        /* Ícones em CSS Puro */
+        .icon-circle-check {
+            width: 28px;
+            height: 28px;
+            background-color: #2d2d2d;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .icon-doc-check {
+            width: 24px;
+            height: 30px;
+            background-color: #008cc1;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        /* Pequeno corte na ponta do ícone de documento */
+        .icon-doc-check::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-width: 0 6px 6px 0;
+            border-style: solid;
+            border-color: #d9d9d9 #d9d9d9 #005f84 #005f84;
+            background: #d9d9d9;
+        }
+
+        /* Símbolo de Check (v) genérico feito em CSS */
+        .checkmark-white {
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            margin-bottom: 2px;
+        }
+
+        /* Seção do Formulário Inferior */
+        .form-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 340px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .form-section h4 {
+            font-size: 18px;
+            color: #1a1a1a;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .form-section p {
+            font-size: 15px;
+            color: #1a1a1a;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .input-field {
+            width: 100%;
+            background-color: #ffffff;
+            border: none;
+            padding: 12px 16px;
+            font-size: 14px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            color: #333;
+            outline: none;
+            text-align: center;
+        }
+
+        .input-field::placeholder {
+            color: #b0b0b0;
+        }
+
+        /* Botão Avançar */
+        .btn-advance {
+            background-color: #2d2d2d;
+            color: #ffffff;
+            border: none;
+            padding: 12px 50px;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-top: 8px;
+        }
+
+        .btn-advance:hover {
+            background-color: #1a1a1a;
+        }
+
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px;
+                justify-content: center;
+            }
+            .status-container {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                text-align: center;
+            }
+            .wait-box {
+                text-align: center;
+            }
+            .check-item {
+                justify-content: center;
+            }
+            .title {
+                font-size: 28px;
+                margin-bottom: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <img src="assets/Logo.png" alt="Logo ConnectTruck">
+                ConnectTruck
+            </div>
+        </header>
+
+        <main class="main-content">
+            <h1 class="title">Hora da Checagem!</h1>
+            
+            <div class="status-container">
+                
+                <div class="wait-box">
+                    <h3>Aguarde um momento...</h3>
+                    <p>Estamos a analisar a verificação do seu perfil.</p>
+                </div>
+
+                <div class="checklist">
+                    <div class="check-item">
+                        <div class="icon-circle-check">
+                            <div class="checkmark-white"></div>
+                        </div>
+                        <span>Os documentos foram carregados</span>
+                    </div>
+                    
+                    <div class="check-item">
+                        <div class="icon-doc-check">
+                            <div class="checkmark-white"></div>
+                        </div>
+                        <span>Documentos aceitos</span>
+                    </div>
+
+                    <div class="check-item">
+                        <div class="icon-doc-check">
+                            <div class="checkmark-white"></div>
+                        </div>
+                        <span>Selfie aceita</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <section class="form-section">
+                <h4>Tudo Pronto?</h4>
+                <p>Crie um nome de Usuário e Senha</p>
+                
+                <input type="text" class="input-field" placeholder="Nome de Usuário">
+                <input type="password" class="input-field" placeholder="Senha">
+                
+                <button class="btn-advance">Avançar</button>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>
