@@ -17,37 +17,36 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"
     />
     <link rel="stylesheet" href="transportadoras.css" />
+    <link rel="stylesheet" href="../Simulação/style.css" />
   </head>
   <body>
     <!-- ================================
     MENU (barra do topo)
     ================================ -->
-    <nav class="navbar">
-      <!-- Logo no canto esquerdo -->
-      <img src="../images/logo.png" alt="Logo" class="logo" />
-      <h2 class="connecttruck">ConnectTruck</h2>
-      <ul class="nav-links">
-        <!-- Links do menu -->
-        <li>
-          <a href="#"><strong>Como Funciona</strong></a>
-        </li>
-        <li>
-          <a href="#"><strong>Frete</strong></a>
-        </li>
-        <li>
-          <a href="#"><strong>Transportadores</strong></a>
-        </li>
-      </ul>
-
-      <div class="nav-actions">
-        <!-- Botões do lado direito -->
-        <ul class="nav-login">
-          <li><a href="../Entrar/index.html">Entrar</a></li>
-          <li><a href="../Tipo de Perfil/index.html">Cadastrar-se</a></li>
+    <header>
+      <nav class="nav-container">
+        <a href="#" class="logo-wrapper">
+          <img
+            src="../Cadastro/cadastro cliente/Logo@2x.png"
+            alt="Logo ConnectTruck"
+            class="logo-img"
+          />
+          <span class="logo-text">ConnectTruck</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="../Como Funciona/index.html">Como Funciona</a></li>
+          <li><a href="../Simulação/index.html">Simular Frete</a></li>
+          <li>
+            <a href="#" class="active">Transportadores</a>
+          </li>
         </ul>
-        <a href="#" class="criar-frete">Criar Frete</a>
-      </div>
-    </nav>
+        <div class="nav-auth">
+          <a href="#" class="btn-text">Entrar</a>
+          <a href="#" class="btn-text">Cadastrar</a>
+          <a href="#" class="btn-cta">Criar Frete</a>
+        </div>
+      </nav>
+    </header>
 
     <!-- ================================
     HERO (seção principal)

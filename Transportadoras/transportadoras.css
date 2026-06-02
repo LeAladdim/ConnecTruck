@@ -1,4 +1,4 @@
-* {
+e · CSS * {
   box-sizing: border-box;
 }
 
@@ -8,7 +8,25 @@ body {
   font-family: "Inter", sans-serif;
 }
 
-/* NAVBAR */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Logo com nome */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.navbar-nome {
+  font-size: 18px;
+  font-weight: 700;
+  color: #05161a;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -42,9 +60,14 @@ body {
   background-color: #cccccc;
 }
 
-.nav-links a:active {
+/* Item ativo do menu — ex: "Transportadores" com fundo azul */
+.nav-links a.ativo {
   background-color: #2a61ba;
   color: white;
+}
+
+.nav-links a.ativo:hover {
+  background-color: #1f4e9e;
 }
 
 .nav-actions {
@@ -66,6 +89,54 @@ body {
 
 .criar-frete:hover {
   background: #1cafb5;
+}
+
+.secao-principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px;
+  gap: 40px;
+}
+
+.texto-principal {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: flex-start;
+  max-width: 600px;
+}
+
+h1.titulo-inicial {
+  margin: 0;
+  color: #05161a;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+h6.subtitulo-inicial {
+  margin: 0;
+  font-size: 18px;
+  color: #294d61;
+}
+
+.caminhao-telainicial {
+  margin-top: 10px;
+}
+
+.mapa-principal {
+  display: flex;
+  justify-content: center;
+}
+
+.como-funciona {
+  color: #0f3f72;
+  font-family: "Poppins", sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
 }
 
 /* A seção inteira do hero */
