@@ -1,466 +1,480 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ConnectTruck - Simule seu Frete</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
     <style>
-        /* --- RESET & ESTILOS BASE --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
+      /* --- RESET & ESTILOS BASE --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
 
-        body {
-            color: #1e293b;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            /* Caminho local para o fundo */
-            background: url('fundo.png') no-repeat center center;
-            background-size: cover;
-            background-attachment: fixed;
-        }
+      body {
+        color: #1e293b;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        /* Caminho local para o fundo */
+        background: url("../images/foto-fundo.png") no-repeat center center;
+        background-size: cover;
+        background-attachment: fixed;
+      }
 
-        /* --- HEADER & NAVEGAÇÃO --- */
-        header {
-            background-color: #ffffff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+      /* --- HEADER & NAVEGAÇÃO --- */
+      header {
+        background-color: #ffffff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 12px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 12px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
 
-        .logo-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-        }
+      .logo-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+      }
 
-        .logo-img {
-            height: 35px;
-            width: auto;
-            display: block;
-        }
+      .logo-img {
+        height: 35px;
+        width: auto;
+        display: block;
+      }
 
-        .logo-text {
-            font-weight: 800;
-            font-size: 20px;
-            color: #062446;
-        }
+      .logo-text {
+        font-weight: 800;
+        font-size: 20px;
+        color: #062446;
+      }
 
-        .nav-links {
-            display: flex;
-            gap: 24px;
-            align-items: center;
-            list-style: none;
-        }
+      .nav-links {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+        list-style: none;
+      }
 
-        .nav-links a {
-            text-decoration: none;
-            color: #1e293b;
-            font-size: 14px;
-            font-weight: 600;
-            transition: color 0.2s;
-        }
+      .nav-links a {
+        text-decoration: none;
+        color: #1e293b;
+        font-size: 14px;
+        font-weight: 600;
+        transition: color 0.2s;
+      }
 
-        .nav-links a:hover {
-            color: #0284c7;
-        }
+      .nav-links a:hover {
+        color: #0284c7;
+      }
 
-        .nav-links .active {
-            color: #ffffff;
-            background-color: #1d4ed8;
-            padding: 6px 14px;
-            border-radius: 20px;
-        }
+      .nav-links .active {
+        color: #ffffff;
+        background-color: #1d4ed8;
+        padding: 6px 14px;
+        border-radius: 20px;
+      }
 
-        .nav-auth {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
+      .nav-auth {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+      }
 
-        .btn-text {
-            text-decoration: none;
-            color: #1e293b;
-            font-size: 14px;
-            font-weight: 600;
-        }
+      .btn-text {
+        text-decoration: none;
+        color: #1e293b;
+        font-size: 14px;
+        font-weight: 600;
+      }
 
-        .btn-cta {
-            text-decoration: none;
-            background-color: #00bfa5;
-            color: #ffffff;
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-        }
+      .btn-cta {
+        text-decoration: none;
+        background-color: #00bfa5;
+        color: #ffffff;
+        padding: 8px 18px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+      }
 
-        /* --- CONTEÚDO PRINCIPAL --- */
-        main {
-            flex: 1;
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-            text-align: center;
-        }
+      /* --- CONTEÚDO PRINCIPAL --- */
+      main {
+        flex: 1;
+        max-width: 1100px;
+        margin: 40px auto;
+        padding: 0 20px;
+        text-align: center;
+      }
 
-        .hero-title {
-            color: #062446;
-            font-size: 38px;
-            font-weight: 800;
-            margin-bottom: 12px;
-        }
+      .hero-title {
+        color: #062446;
+        font-size: 38px;
+        font-weight: 800;
+        margin-bottom: 12px;
+      }
 
-        .hero-subtitle {
-            color: #1d4ed8;
-            font-size: 18px;
-            margin-bottom: 35px;
-            font-weight: 500;
-        }
+      .hero-subtitle {
+        color: #1d4ed8;
+        font-size: 18px;
+        margin-bottom: 35px;
+        font-weight: 500;
+      }
 
-        /* --- CARD DE SIMULAÇÃO (GRID & RESPONSIVIDADE) --- */
+      /* --- CARD DE SIMULAÇÃO (GRID & RESPONSIVIDADE) --- */
+      .simulation-card {
+        background: rgba(255, 255, 255, 0.92);
+        border-radius: 24px;
+        padding: 35px 35px 20px 35px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 30px;
+        align-items: end;
+        text-align: left;
+        overflow: hidden;
+      }
+
+      /* --- FORMULÁRIO (ESQUERDA) --- */
+      .form-section {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .form-section h2 {
+        color: #062446;
+        font-size: 26px;
+        font-weight: 800;
+        margin-bottom: 20px;
+      }
+
+      .map-container {
+        width: 100%;
+        height: 170px;
+        border-radius: 16px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        display: block;
+      }
+
+      .map-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .full-width {
+        grid-column: span 2;
+      }
+
+      .input-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .input-group label {
+        font-weight: 700;
+        color: #1e293b;
+        font-size: 15px;
+      }
+
+      .input-group input,
+      .input-group select {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1px solid #cbd5e1;
+        border-radius: 12px;
+        font-size: 14px;
+        background-color: #ffffff;
+        outline: none;
+      }
+
+      .weight-input-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
+      .weight-input-wrapper span {
+        position: absolute;
+        right: 16px;
+        font-weight: 600;
+        color: #64748b;
+        border-left: 1px solid #cbd5e1;
+        padding-left: 12px;
+      }
+
+      .btn-submit {
+        grid-column: span 2;
+        background-color: #00bfa5;
+        color: #ffffff;
+        border: none;
+        padding: 14px;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        margin-top: 8px;
+        transition: background-color 0.2s;
+      }
+
+      .btn-submit:hover {
+        background-color: #00a892;
+      }
+
+      /* --- IMAGEM DO MOTORISTA (DIREITA) --- */
+      .image-section {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .driver-img {
+        width: 100%;
+        max-width: 380px;
+        height: auto;
+        display: block;
+        object-fit: contain;
+      }
+
+      /* --- DETALHES DE BENEFÍCIO --- */
+      .benefits-list {
+        grid-column: span 2;
+        margin-top: 15px;
+        border-top: 1px solid #e2e8f0;
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .benefit-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        color: #1e293b;
+        font-size: 16px;
+      }
+
+      .benefit-item i {
+        color: #00bfa5;
+        font-size: 20px;
+      }
+
+      .disclaimer {
+        grid-column: span 2;
+        font-size: 11px;
+        color: #64748b;
+        text-align: center;
+        margin-top: 15px;
+      }
+
+      /* --- FOOTER --- */
+      footer {
+        background-color: #ffffff;
+        padding: 20px;
+        border-top: 1px solid #e2e8f0;
+        margin-top: auto;
+      }
+
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 24px;
+        list-style: none;
+      }
+
+      .footer-links a {
+        text-decoration: none;
+        color: #64748b;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .footer-socials {
+        display: flex;
+        gap: 18px;
+      }
+
+      .footer-socials a {
+        color: #64748b;
+        font-size: 20px;
+      }
+
+      /* --- MODAL E CARD DE SUCESSO --- */
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(6, 36, 70, 0.6);
+        backdrop-filter: blur(4px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .modal-overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .success-card {
+        background: #ffffff;
+        padding: 35px 25px;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        max-width: 400px;
+        width: 90%;
+        transform: scale(0.8);
+        transition: transform 0.3s ease;
+      }
+
+      .modal-overlay.active .success-card {
+        transform: scale(1);
+      }
+
+      .success-card .icon-wrapper {
+        width: 70px;
+        height: 70px;
+        background-color: #e6f9f6;
+        color: #00bfa5;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 32px;
+        margin: 0 auto 20px auto;
+      }
+
+      .success-card h3 {
+        color: #062446;
+        font-size: 22px;
+        font-weight: 800;
+        margin-bottom: 10px;
+      }
+
+      .success-card p {
+        color: #64748b;
+        font-size: 16px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      /* Spinner Animado */
+      .spinner {
+        animation: spin 1s linear infinite;
+        color: #1d4ed8;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* --- RESPONSIVIDADE --- */
+      @media (max-width: 900px) {
         .simulation-card {
-            background: rgba(255, 255, 255, 0.92);
-            border-radius: 24px;
-            padding: 35px 35px 20px 35px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 30px;
-            align-items: end;
-            text-align: left;
-            overflow: hidden;
+          grid-template-columns: 1fr;
+          padding: 25px 20px;
         }
 
-        /* --- FORMULÁRIO (ESQUERDA) --- */
-        .form-section {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
+        .image-section {
+          display: none;
         }
 
-        .form-section h2 {
-            color: #062446;
-            font-size: 26px;
-            font-weight: 800;
-            margin-bottom: 20px;
+        .benefits-list,
+        .disclaimer {
+          grid-column: span 1;
         }
+      }
 
-        .map-container {
-            width: 100%;
-            height: 170px;
-            border-radius: 16px;
-            margin-bottom: 20px;
-            overflow: hidden;
-            display: block;
-        }
-
-        .map-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
+      @media (max-width: 600px) {
+        .nav-links,
+        .nav-auth .btn-text {
+          display: none;
         }
 
         .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
+          grid-template-columns: 1fr;
         }
 
-        .full-width {
-            grid-column: span 2;
-        }
-
-        .input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .input-group label {
-            font-weight: 700;
-            color: #1e293b;
-            font-size: 15px;
-        }
-
-        .input-group input, .input-group select {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid #cbd5e1;
-            border-radius: 12px;
-            font-size: 14px;
-            background-color: #ffffff;
-            outline: none;
-        }
-
-        .weight-input-wrapper {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .weight-input-wrapper span {
-            position: absolute;
-            right: 16px;
-            font-weight: 600;
-            color: #64748b;
-            border-left: 1px solid #cbd5e1;
-            padding-left: 12px;
-        }
-
+        .full-width,
         .btn-submit {
-            grid-column: span 2;
-            background-color: #00bfa5;
-            color: #ffffff;
-            border: none;
-            padding: 14px;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-            margin-top: 8px;
-            transition: background-color 0.2s;
-        }
-
-        .btn-submit:hover {
-            background-color: #00a892;
-        }
-
-        /* --- IMAGEM DO MOTORISTA (DIREITA) --- */
-        .image-section {
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .driver-img {
-            width: 100%;
-            max-width: 380px;
-            height: auto;
-            display: block;
-            object-fit: contain;
-        }
-
-        /* --- DETALHES DE BENEFÍCIO --- */
-        .benefits-list {
-            grid-column: span 2;
-            margin-top: 15px;
-            border-top: 1px solid #e2e8f0;
-            padding-top: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .benefit-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 700;
-            color: #1e293b;
-            font-size: 16px;
-        }
-
-        .benefit-item i {
-            color: #00bfa5;
-            font-size: 20px;
-        }
-
-        .disclaimer {
-            grid-column: span 2;
-            font-size: 11px;
-            color: #64748b;
-            text-align: center;
-            margin-top: 15px;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background-color: #ffffff;
-            padding: 20px;
-            border-top: 1px solid #e2e8f0;
-            margin-top: auto;
+          grid-column: span 1;
         }
 
         .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
+          flex-direction: column;
         }
-
-        .footer-links {
-            display: flex;
-            gap: 24px;
-            list-style: none;
-        }
-
-        .footer-links a {
-            text-decoration: none;
-            color: #64748b;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .footer-socials {
-            display: flex;
-            gap: 18px;
-        }
-
-        .footer-socials a {
-            color: #64748b;
-            font-size: 20px;
-        }
-
-        /* --- MODAL E CARD DE SUCESSO --- */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(6, 36, 70, 0.6);
-            backdrop-filter: blur(4px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .success-card {
-            background: #ffffff;
-            padding: 35px 25px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-            transform: scale(0.8);
-            transition: transform 0.3s ease;
-        }
-
-        .modal-overlay.active .success-card {
-            transform: scale(1);
-        }
-
-        .success-card .icon-wrapper {
-            width: 70px;
-            height: 70px;
-            background-color: #e6f9f6;
-            color: #00bfa5;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 32px;
-            margin: 0 auto 20px auto;
-        }
-
-        .success-card h3 {
-            color: #062446;
-            font-size: 22px;
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-
-        .success-card p {
-            color: #64748b;
-            font-size: 16px;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        /* Spinner Animado */
-        .spinner {
-            animation: spin 1s linear infinite;
-            color: #1d4ed8;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* --- RESPONSIVIDADE --- */
-        @media (max-width: 900px) {
-            .simulation-card {
-                grid-template-columns: 1fr;
-                padding: 25px 20px;
-            }
-
-            .image-section {
-                display: none; 
-            }
-
-            .benefits-list, .disclaimer {
-                grid-column: span 1;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .nav-links, .nav-auth .btn-text {
-                display: none; 
-            }
-
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .full-width, .btn-submit {
-                grid-column: span 1;
-            }
-
-            .footer-container {
-                flex-direction: column;
-            }
-        }
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <header>
+<<<<<<< HEAD
         <nav class="nav-container">
             <a href="#" class="logo-wrapper">
                 <img src="../Cadastro/cadastro cliente/Logo@2x.png" alt="Logo ConnectTruck" class="logo-img">
@@ -477,104 +491,163 @@
                 <a href="#" class="btn-cta">Criar Frete</a>
             </div>
         </nav>
+=======
+      <nav class="nav-container">
+        <a href="#" class="logo-wrapper">
+          <img
+            src="../images/logo.png"
+            alt="Logo ConnectTruck"
+            class="logo-img"
+          />
+          <span class="logo-text">ConnectTruck</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#">Como Funciona</a></li>
+          <li><a href="#" class="active">Simular Frete</a></li>
+          <li><a href="#">Transportadores</a></li>
+        </ul>
+        <div class="nav-auth">
+          <a href="#" class="btn-text">Entrar</a>
+          <a href="#" class="btn-text">Cadastrar</a>
+          <a href="#" class="btn-cta">Criar Frete</a>
+        </div>
+      </nav>
+>>>>>>> 4def40e3413169438d89063023cf417cc8c34f96
     </header>
 
     <main>
-        <h1 class="hero-title">Simule o Custo do Seu Frete!</h1>
-        <p class="hero-subtitle">
-            Veja como é fácil <strong>economizar</strong> no seu <strong>transporte</strong> preenchendo os dados abaixo:
-        </p>
+      <h1 class="hero-title">Simule o Custo do Seu Frete!</h1>
+      <p class="hero-subtitle">
+        Veja como é fácil <strong>economizar</strong> no seu
+        <strong>transporte</strong> preenchendo os dados abaixo:
+      </p>
 
-        <div class="simulation-card">
-            
-            <div class="form-section">
-                <h2>Simule seu Frete</h2>
-                
-                <div class="map-container">
-                    <img src="mapa.png" alt="Mapa de Rotas" class="map-img">
-                </div>
+      <div class="simulation-card">
+        <div class="form-section">
+          <h2>Simule seu Frete</h2>
 
-                <form id="freightForm" class="form-grid" onsubmit="handleFormSubmit(event)">
-                    <div class="input-group full-width">
-                        <label for="origin">Origem</label>
-                        <input type="text" id="origin" placeholder="Digite a origem..." required>
-                    </div>
+          <div class="map-container">
+            <img
+              src="../images/mapa2.png"
+              alt="Mapa de Rotas"
+              class="map-img"
+            />
+          </div>
 
-                    <div class="input-group full-width">
-                        <label for="destination">Destino</label>
-                        <input type="text" id="destination" placeholder="Digite o destino..." required>
-                    </div>
-
-                    <div class="input-group">
-                        <label for="weight">Peso</label>
-                        <div class="weight-input-wrapper">
-                            <input type="number" id="weight" placeholder="Ex: 60" required>
-                            <span>kg</span>
-                        </div>
-                    </div>
-
-                    <div class="input-group">
-                        <label for="volume">Volume</label>
-                        <select id="volume" required>
-                            <option value="" disabled selected>Selecionar</option>
-                            <option value="pequeno">Pequeno</option>
-                            <option value="medio">Médio</option>
-                            <option value="grande">Grande</option>
-                        </select>
-                    </div>
-
-                    <button type="submit" class="btn-submit">
-                        <i class="fa-solid fa-truck"></i> Encontrar Caminhões
-                    </button>
-                </form>
+          <form
+            id="freightForm"
+            class="form-grid"
+            onsubmit="handleFormSubmit(event)"
+          >
+            <div class="input-group full-width">
+              <label for="origin">Origem</label>
+              <input
+                type="text"
+                id="origin"
+                placeholder="Digite a origem..."
+                required
+              />
             </div>
 
-            <div class="image-section">
-                <img src="imagem.png" alt="Motorista Parceiro" class="driver-img">
+            <div class="input-group full-width">
+              <label for="destination">Destino</label>
+              <input
+                type="text"
+                id="destination"
+                placeholder="Digite o destino..."
+                required
+              />
             </div>
 
-            <div class="benefits-list">
-                <div class="benefit-item">
-                    <i class="fa-solid fa-check"></i> Fretes até 75% mais baratos
-                </div>
-                <div class="benefit-item">
-                    <i class="fa-solid fa-check"></i> Agrupamos cargas para o mesmo destino
-                </div>
-                <div class="benefit-item">
-                    <i class="fa-solid fa-check"></i> Monitoramento e segurança durante todo o trajeto
-                </div>
+            <div class="input-group">
+              <label for="weight">Peso</label>
+              <div class="weight-input-wrapper">
+                <input
+                  type="number"
+                  id="weight"
+                  placeholder="Ex: 60"
+                  required
+                />
+                <span>kg</span>
+              </div>
             </div>
 
-            <p class="disclaimer">
-                Você pode simular sem compromisso. Após aceitar o frete, aplicam-se as regras de cancelamento para garantir a operação.
-            </p>
+            <div class="input-group">
+              <label for="volume">Volume</label>
+              <select id="volume" required>
+                <option value="" disabled selected>Selecionar</option>
+                <option value="pequeno">Pequeno</option>
+                <option value="medio">Médio</option>
+                <option value="grande">Grande</option>
+              </select>
+            </div>
 
+            <button type="submit" class="btn-submit">
+              <i class="fa-solid fa-truck"></i> Encontrar Caminhões
+            </button>
+          </form>
         </div>
+
+        <div class="image-section">
+          <img
+            src="../images/vinicius.png"
+            alt="Motorista Parceiro"
+            class="driver-img"
+          />
+        </div>
+
+        <div class="benefits-list">
+          <div class="benefit-item">
+            <i class="fa-solid fa-check"></i> Fretes até 75% mais baratos
+          </div>
+          <div class="benefit-item">
+            <i class="fa-solid fa-check"></i> Agrupamos cargas para o mesmo
+            destino
+          </div>
+          <div class="benefit-item">
+            <i class="fa-solid fa-check"></i> Monitoramento e segurança durante
+            todo o trajeto
+          </div>
+        </div>
+
+        <p class="disclaimer">
+          Você pode simular sem compromisso. Após aceitar o frete, aplicam-se as
+          regras de cancelamento para garantir a operação.
+        </p>
+      </div>
     </main>
 
     <div class="modal-overlay" id="successModal">
-        <div class="success-card">
-            <div class="icon-wrapper">
-                <i class="fa-solid fa-circle-check"></i>
-            </div>
-            <h3>Informações enviadas com sucesso!</h3>
-            <p><i class="fa-solid fa-spinner spinner"></i> Encontrando caminhões...</p>
+      <div class="success-card">
+        <div class="icon-wrapper">
+          <i class="fa-solid fa-circle-check"></i>
         </div>
+        <h3>Informações enviadas com sucesso!</h3>
+        <p>
+          <i class="fa-solid fa-spinner spinner"></i> Encontrando caminhões...
+        </p>
+      </div>
     </div>
 
     <footer>
-        <div class="footer-container">
-            <ul class="footer-links">
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Contato</a></li>
-                <li><a href="#">Política de Privacidade</a></li>
-            </ul>
-            <div class="footer-socials">
-                <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" aria-label="Youtube"><i class="fa-brands fa-youtube"></i></a>
-            </div>
+      <div class="footer-container">
+        <ul class="footer-links">
+          <li><a href="#">Sobre</a></li>
+          <li><a href="#">Contato</a></li>
+          <li><a href="#">Política de Privacidade</a></li>
+        </ul>
+        <div class="footer-socials">
+          <a href="#" aria-label="Twitter"
+            ><i class="fa-brands fa-twitter"></i
+          ></a>
+          <a href="#" aria-label="Instagram"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a href="#" aria-label="Youtube"
+            ><i class="fa-brands fa-youtube"></i
+          ></a>
         </div>
+      </div>
     </footer>
 
     <script>
@@ -592,5 +665,5 @@
             }, 4000);
         }
     </script>
-</body>
+  </body>
 </html>
