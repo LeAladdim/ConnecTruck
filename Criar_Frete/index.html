@@ -1,0 +1,882 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ConnectTruck - Crie seu Frete</title>
+    <link rel="stylesheet" href="../Transportadoras/transportadoras.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      /* --- RESET & ESTILOS BASE --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+
+      body {
+        color: #1e293b;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background: url("fundo.png") no-repeat center center;
+        background-size: cover;
+        background-attachment: fixed;
+      }
+
+      /* --- HEADER & NAVEGAÇÃO --- */
+      header {
+        background-color: #ffffff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 12px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+
+      .logo-img {
+        height: 40px;
+        width: auto;
+        display: block;
+      }
+
+      .logo-text {
+        font-weight: 800;
+        font-size: 20px;
+        color: #062446;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+        list-style: none;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #1e293b;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .nav-links a:hover {
+        color: #0284c7;
+      }
+
+      .nav-user-panel {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .user-welcome {
+        font-size: 14px;
+        font-weight: 600;
+        color: #1e293b;
+      }
+
+      .user-welcome strong {
+        font-weight: 700;
+      }
+
+      .user-avatar {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 1px solid #cbd5e1;
+      }
+
+      .btn-cta {
+        text-decoration: none;
+        background-color: #00bfa5;
+        color: #ffffff;
+        padding: 8px 18px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        transition: background-color 0.2s;
+      }
+
+      .btn-cta:hover {
+        background-color: #009688;
+      }
+
+      /* --- CONTEÚDO PRINCIPAL --- */
+      main {
+        flex: 1;
+        max-width: 1100px;
+        margin: 40px auto;
+        padding: 0 20px;
+        text-align: center;
+      }
+
+      .hero-title {
+        color: #062446;
+        font-size: 38px;
+        font-weight: 800;
+        margin-bottom: 12px;
+      }
+
+      .hero-subtitle {
+        color: #1d4ed8;
+        font-size: 18px;
+        margin-bottom: 35px;
+        font-weight: 500;
+      }
+
+      /* --- CARD DE CRIAÇÃO --- */
+      .creation-card {
+        background: rgba(255, 255, 255, 0.94);
+        border-radius: 24px;
+        padding: 40px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        text-align: left;
+        margin-bottom: 40px;
+      }
+
+      .step-section {
+        margin-bottom: 35px;
+      }
+
+      .step-title-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+
+      .step-number {
+        background-color: #062446;
+        color: #ffffff;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 800;
+        font-size: 16px;
+      }
+
+      .step-title {
+        color: #062446;
+        font-size: 22px;
+        font-weight: 800;
+      }
+
+      .inputs-flex-row {
+        display: flex;
+        gap: 20px;
+        align-items: flex-end;
+        width: 100%;
+      }
+
+      .input-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        flex: 1;
+      }
+
+      .input-group label {
+        font-weight: 700;
+        color: #062446;
+        font-size: 15px;
+      }
+
+      .input-with-icon {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
+      .input-with-icon i {
+        position: absolute;
+        left: 14px;
+        color: #64748b;
+      }
+
+      .input-with-icon input,
+      .input-group select {
+        width: 100%;
+        padding: 12px 16px 12px 40px;
+        border: 1px solid #cbd5e1;
+        border-radius: 12px;
+        font-size: 14px;
+        background-color: #ffffff;
+        outline: none;
+        color: #334155;
+      }
+
+      .input-group select {
+        padding-left: 16px;
+      }
+
+      .weight-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
+      .weight-wrapper input {
+        padding-left: 16px;
+        padding-right: 45px;
+      }
+
+      .weight-wrapper .unit {
+        position: absolute;
+        right: 16px;
+        font-weight: 700;
+        color: #1e293b;
+      }
+
+      .btn-switch-places {
+        background: #ffffff;
+        border: 1px solid #cbd5e1;
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        color: #00bfa5;
+        font-size: 16px;
+        margin-bottom: 5px;
+      }
+
+      /* Container do Mini-Mapa */
+      .step-map-container {
+        width: 260px;
+        height: 90px;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid #e2e8f0;
+      }
+
+      .step-map-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* GRIDS COMPORTAMENTAIS */
+      .grid-quad {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+
+      .grid-triple {
+        display: grid;
+        grid-template-columns: 1.2fr 1.5fr 2fr;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .urgency-container {
+        display: flex;
+        gap: 12px;
+      }
+
+      .btn-urgency {
+        flex: 1;
+        padding: 12px;
+        border: 1px solid #cbd5e1;
+        background: #ffffff;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 14px;
+        cursor: pointer;
+        text-align: center;
+      }
+
+      .btn-urgency.active {
+        border-color: #062446;
+        background-color: #f8fafc;
+      }
+
+      .accept-terms-wrapper {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .accept-terms-wrapper input {
+        margin-top: 4px;
+        width: 16px;
+        height: 16px;
+      }
+
+      .accept-terms-wrapper label {
+        font-size: 12px;
+        line-height: 1.5;
+        color: #475569;
+      }
+
+      .accept-terms-wrapper a {
+        color: #0284c7;
+      }
+
+      /* PAINEL DE MÉTRICAS */
+      .metrics-panel {
+        background-color: #f1f5f9;
+        border-radius: 16px;
+        padding: 24px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        margin-top: 20px;
+        border: 1px solid #e2e8f0;
+      }
+
+      .metric-box {
+        text-align: center;
+        border-right: 1px solid #cbd5e1;
+      }
+
+      .metric-box:last-child {
+        border-right: none;
+      }
+
+      .metric-label {
+        font-size: 13px;
+        font-weight: 700;
+        color: #1d4ed8;
+        margin-bottom: 6px;
+      }
+
+      .metric-value {
+        font-size: 24px;
+        font-weight: 800;
+        color: #062446;
+      }
+
+      .metric-value.highlight {
+        color: #00bfa5;
+        font-size: 26px;
+      }
+
+      .metric-subtext {
+        font-size: 11px;
+        color: #64748b;
+        margin-top: 4px;
+      }
+
+      /* SEÇÃO DOS CARDS DOS CAMINHÕES */
+      .truck-offers-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-bottom: 40px;
+      }
+
+      .truck-card {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+        border: 1px solid #e2e8f0;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .truck-img {
+        width: 100%;
+        height: 120px;
+        object-fit: contain;
+        margin-bottom: 15px;
+      }
+
+      .truck-card h3 {
+        font-size: 15px;
+        font-weight: 800;
+        color: #1d4ed8;
+        margin-bottom: 6px;
+      }
+
+      .truck-route {
+        font-size: 13px;
+        font-weight: 700;
+        color: #062446;
+        margin-bottom: 4px;
+      }
+
+      .truck-date {
+        font-size: 12px;
+        color: #475569;
+        font-weight: 500;
+        margin-bottom: 12px;
+      }
+
+      .truck-progress-bar {
+        width: 100%;
+        height: 8px;
+        background-color: #e2e8f0;
+        border-radius: 4px;
+        overflow: hidden;
+        margin-bottom: 12px;
+      }
+
+      .truck-progress-fill {
+        height: 100%;
+        background-color: #00bfa5;
+      }
+
+      .truck-progress-text {
+        font-size: 11px;
+        font-weight: 700;
+        color: #64748b;
+        text-align: left;
+        width: 100%;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .truck-price-box {
+        width: 100%;
+        text-align: left;
+        border-top: 1px solid #f1f5f9;
+        padding-top: 12px;
+      }
+
+      .price-lbl {
+        font-size: 11px;
+        color: #64748b;
+      }
+
+      .price-val {
+        font-size: 18px;
+        font-weight: 800;
+        color: #00bfa5;
+      }
+
+      /* --- FOOTER --- */
+      footer {
+        background-color: #ffffff;
+        padding: 20px;
+        border-top: 1px solid #e2e8f0;
+        margin-top: auto;
+      }
+
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 24px;
+        list-style: none;
+        align-items: center;
+      }
+
+      .footer-links a {
+        text-decoration: none;
+        color: #64748b;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .footer-socials {
+        display: flex;
+        gap: 18px;
+      }
+
+      .footer-socials a {
+        color: #64748b;
+        font-size: 20px;
+      }
+
+      /* RESPONSIVIDADE */
+      @media (max-width: 950px) {
+        .inputs-flex-row {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 15px;
+        }
+        .step-map-container {
+          width: 100%;
+          height: 140px;
+        }
+        .grid-quad {
+          grid-template-columns: 1fr 1fr;
+        }
+        .grid-triple {
+          grid-template-columns: 1fr;
+        }
+        .metrics-panel {
+          grid-template-columns: 1fr 1fr;
+        }
+        .metric-box {
+          border-right: none;
+          border-bottom: 1px solid #cbd5e1;
+          padding-bottom: 10px;
+        }
+        .metric-box:last-child {
+          border-bottom: none;
+        }
+        .truck-offers-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .nav-links,
+        .user-welcome {
+          display: none;
+        }
+        .grid-quad,
+        .metrics-panel {
+          grid-template-columns: 1fr;
+        }
+        .hero-title {
+          font-size: 28px;
+        }
+        .footer-container {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="nav-container">
+        <a href="#" class="logo-wrapper">
+          <img
+            src="../images/logo.png"
+            alt="Logo ConnectTruck"
+            class="logo-img"
+          />
+          <span class="logo-text">ConnectTruck</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="../Como Funciona/index.html">Como Funciona</a></li>
+          <li><a href="../Simulação/index.html">Simular Frete</a></li>
+          <li>
+            <a href="../Transportadoras/transportadoras.html"
+              >Transportadores</a
+            >
+          </li>
+        </ul>
+        <div class="nav-user-panel">
+          <span class="user-welcome">Bem vindo, <strong>Rodrigo</strong></span>
+          <img
+            src="../images/rodrigo.png"
+            alt="Rodrigo Avatar"
+            class="user-avatar"
+          />
+          <a href="../Criar_Frete/index.html" class="btn-cta">Criar Frete</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <h1 class="hero-title">Crie seu frete em poucos passos!</h1>
+      <p class="hero-subtitle">
+        Conectamos sua carga a caminhões com rotas compatíveis para você
+        economizar até 95%.
+      </p>
+
+      <div class="creation-card">
+        <div class="step-section">
+          <div class="step-title-wrapper">
+            <div class="step-number">1</div>
+            <h2 class="step-title">Origem e Destino</h2>
+          </div>
+
+          <div class="inputs-flex-row">
+            <div class="input-group">
+              <label for="origin">Origem</label>
+              <div class="input-with-icon">
+                <i class="fa-solid fa-location-dot" style="color: #1d4ed8"></i>
+                <input type="text" id="origin" value="Salvador, BA" />
+              </div>
+            </div>
+
+            <div class="btn-switch-places">
+              <i class="fa-solid fa-arrow-left-right"></i>
+            </div>
+
+            <div class="input-group">
+              <label for="destination">Destino</label>
+              <div class="input-with-icon">
+                <i class="fa-solid fa-location-dot" style="color: #062446"></i>
+                <input
+                  type="text"
+                  id="destination"
+                  value="Feira de Santana, BA"
+                />
+              </div>
+            </div>
+
+            <div class="step-map-container">
+              <img
+                src="../images/mapinha.png"
+                alt="Mini Mapa"
+                class="map-img"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="step-section">
+          <div class="step-title-wrapper">
+            <div class="step-number">2</div>
+            <h2 class="step-title">Detalhes da Carga</h2>
+          </div>
+
+          <div class="grid-quad">
+            <div class="input-group">
+              <label for="weight">Peso Total</label>
+              <div class="weight-wrapper">
+                <input type="text" id="weight" value="Ex: 25" />
+                <span class="unit">Kg</span>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="volume">Volume Total</label>
+              <select id="volume">
+                <option value="">Selecionar</option>
+                <option value="p">Pequeno</option>
+                <option value="m">Médio</option>
+                <option value="g">Grande</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label for="type">Tipo de Carga</label>
+              <select id="type">
+                <option value="">Selecionar</option>
+                <option value="seca">Carga Seca</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label for="quantity">Quantidade de Itens</label>
+              <input
+                type="text"
+                id="quantity"
+                style="
+                  padding: 12px 16px;
+                  border: 1px solid #cbd5e1;
+                  border-radius: 12px;
+                "
+                value="Ex: 100"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="step-section">
+          <div class="step-title-wrapper">
+            <div class="step-number">3</div>
+            <h2 class="step-title">Data e Preferências</h2>
+          </div>
+
+          <div class="grid-triple">
+            <div class="input-group">
+              <label for="collect-date">Data de Coleta</label>
+              <input
+                type="date"
+                id="collect-date"
+                style="
+                  padding: 12px 16px;
+                  border: 1px solid #cbd5e1;
+                  border-radius: 12px;
+                "
+              />
+            </div>
+
+            <div class="input-group">
+              <label>Urgência:</label>
+              <div class="urgency-container">
+                <button type="button" class="btn-urgency active">Normal</button>
+                <button type="button" class="btn-urgency">Urgente ⚡</button>
+              </div>
+            </div>
+
+            <div class="accept-terms-wrapper">
+              <input type="checkbox" id="terms" />
+              <label for="terms">
+                Ao clicar em aceitar, eu dou consentimento que minha carga será
+                enviada junto com a de outros usuários e concordo com os
+                <a href="#">Termos de e privacidade</a>.
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="metrics-panel">
+          <div class="metric-box">
+            <div class="metric-label">Economia estimada</div>
+            <div class="metric-value highlight">R$ 320,00</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">Caminhões Compatíveis</div>
+            <div class="metric-value">
+              8 <span style="font-size: 13px; color: #64748b">Caminhões</span>
+            </div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">CO2 não emitido</div>
+            <div class="metric-value" style="color: #00bfa5">12KG</div>
+            <div class="metric-subtext">Só nessa rota</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">Ocupação média</div>
+            <div class="metric-value">87%</div>
+            <div class="metric-subtext">do veículo</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="truck-offers-grid">
+        <div class="truck-card">
+          <img
+            src="../images/caminhaP.png"
+            alt="Caminhão Baú Pequeno"
+            class="truck-img"
+          />
+          <h3>Caminhão Baú Pequeno</h3>
+          <p class="truck-route">Salvador, BA → Feira de Santana, BA</p>
+          <p class="truck-date">Coleta até: 04/04/2026</p>
+          <div class="truck-progress-bar">
+            <div class="truck-progress-fill" style="width: 15%"></div>
+          </div>
+          <div class="truck-progress-text">
+            <span>Espaço Disponível</span><span>15%</span>
+          </div>
+          <div class="truck-price-box">
+            <span class="price-lbl">Preço:</span>
+            <div class="price-val">R$ 180,00</div>
+          </div>
+        </div>
+
+        <div class="truck-card">
+          <img
+            src="../images/caminhaM.png"
+            alt="Caminhão Baú"
+            class="truck-img"
+          />
+          <h3>Caminhão Baú</h3>
+          <p class="truck-route">Salvador, BA → Feira de Santana, BA</p>
+          <p class="truck-date">Coleta até: 05/04/2026</p>
+          <div class="truck-progress-bar">
+            <div class="truck-progress-fill" style="width: 35%"></div>
+          </div>
+          <div class="truck-progress-text">
+            <span>Espaço Disponível</span><span>35%</span>
+          </div>
+          <div class="truck-price-box">
+            <span class="price-lbl">Preço:</span>
+            <div class="price-val">R$ 210,00</div>
+          </div>
+        </div>
+
+        <div class="truck-card">
+          <img
+            src="../images/caminhaG.png"
+            alt="Caminhão Grande"
+            class="truck-img"
+          />
+          <h3>Caminhão Baú</h3>
+          <p class="truck-route">Salvador, BA → Feira de Santana, BA</p>
+          <p class="truck-date">Coleta até: 07/04/2026</p>
+          <div class="truck-progress-bar">
+            <div class="truck-progress-fill" style="width: 70%"></div>
+          </div>
+          <div class="truck-progress-text">
+            <span>Espaço Disponível</span><span>70%</span>
+          </div>
+          <div class="truck-price-box">
+            <span class="price-lbl">Preço:</span>
+            <div class="price-val">R$ 193,00</div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <ul>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Contato</a></li>
+        <li><a href="#">Política de Privacidade</a></li>
+      </ul>
+
+      <!-- Ícones das redes sociais -->
+      <div class="redes-sociais">
+        <!-- Usando Font Awesome para os ícones -->
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const dateInput = document.getElementById("collect-date");
+        dateInput.value = "2026-04-04"; // Setado no ano de 2026 conforme contexto
+      });
+
+      const urgencyButtons = document.querySelectorAll(".btn-urgency");
+      urgencyButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          urgencyButtons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+        });
+      });
+
+      const switchBtn = document.querySelector(".btn-switch-places");
+      switchBtn.addEventListener("click", () => {
+        const originInput = document.getElementById("origin");
+        const destInput = document.getElementById("destination");
+        const temp = originInput.value;
+        originInput.value = destInput.value;
+        destInput.value = temp;
+      });
+    </script>
+  </body>
+</html>
