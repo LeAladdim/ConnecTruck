@@ -31,8 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             alert("Cadastro finalizado com sucesso! Bem-vindo à ConnectTruck.");
-            
-            window.location.href = "../../Dashboard/index.html";
+            window.location.href = "../Dashboard/index.html";
         });
+
+        
     }
 });
