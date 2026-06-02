@@ -474,6 +474,24 @@
   </head>
   <body>
     <header>
+<<<<<<< HEAD
+        <nav class="nav-container">
+            <a href="#" class="logo-wrapper">
+                <img src="../Cadastro/cadastro cliente/Logo@2x.png" alt="Logo ConnectTruck" class="logo-img">
+                <span class="logo-text">ConnectTruck</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#">Como Funciona</a></li>
+                <li><a href="#" class="active">Simular Frete</a></li>
+                <li><a href="#">Transportadores</a></li>
+            </ul>
+            <div class="nav-auth">
+                <a href="#" class="btn-text">Entrar</a>
+                <a href="#" class="btn-text">Cadastrar</a>
+                <a href="#" class="btn-cta">Criar Frete</a>
+            </div>
+        </nav>
+=======
       <nav class="nav-container">
         <a href="#" class="logo-wrapper">
           <img
@@ -494,6 +512,7 @@
           <a href="#" class="btn-cta">Criar Frete</a>
         </div>
       </nav>
+>>>>>>> 4def40e3413169438d89063023cf417cc8c34f96
     </header>
 
     <main>
@@ -632,22 +651,19 @@
     </footer>
 
     <script>
-      function handleFormSubmit(event) {
-        event.preventDefault();
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const modal = document.getElementById('successModal');
+            
+            modal.classList.add('active');
+            
+            setTimeout(() => {
+                modal.classList.remove('active');
 
-        // Pega o elemento do Modal
-        const modal = document.getElementById("successModal");
-
-        // Exibe o card com efeito visual de fade-in
-        modal.classList.add("active");
-
-        // (Opcional) Fecha automaticamente o modal após 4 segundos
-        setTimeout(() => {
-          modal.classList.remove("active");
-          // Limpa o formulário após o envio bem-sucedido
-          document.getElementById("freightForm").reset();
-        }, 4000);
-      }
+                document.getElementById('freightForm').reset();
+            }, 4000);
+        }
     </script>
   </body>
 </html>
